@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+    <title>Crédit App</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="container">
+    <div class="login">
+        <h3>Prédiction de salaire pour métier de Data</h3>
+
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}" method="post">
+            <label for="metier">Choisissez un métier:</label>
+            <select name="metier" id="metier">
+                <option value="Data Analyst">Data Analyst</option>
+                <option value="Data Scientist">Data Scientist</option>
+                <option value="Data Engineer">Data Engineer</option>
+                <option value="Data Manager">Data Manager</option>
+                <option value="Developpeur BigData">Developpeur BigData</option>
+            </select>
+            <br>
+
+            <label for="Departement">Choisissez une ville:</label>
+            <select name="Departement" id="Departement">
+                <option value="75">Paris</option>
+                <option value="92">Nanterre</option>
+                <option value="69">Lyon</option>
+                <option value="31">Toulouse</option>
+                <option value="33">Bordeaux</option>
+                <option value="44">Nantes</option>
+                <option value="37">Tours</option>
+                <option value="94">Créteil</option>
+                <option value="93">Bobigny</option>
+                <option value="77">Melun</option>
+                <option value="91">Evry</option>
+            </select>
+            <br>
+            <label for="contrat">Quel type de contrat de travail:</label>
+            <select name="contrat" id="contrat">
+                <option value="CDI">CDI</option>
+                <option value="CDD">CDD</option>
+                <option value="Interim">Interim</option>
+            </select>
+            <br>
+            <label for="experience">Combien d'années d'expérience:</label>
+            <select name="experience" id="experience">
+                <option value="0">Debutant</option>
+                <option value="1">1 année</option>
+                <option value="2">2 années</option>
+                <option value="3">3 années</option>
+                <option value="4">4 années</option>
+                <option value="5">plus que 4 années</option>
+            </select>
+            <br>
+            <br>
+
+            <textarea id="Description" name="Description" placeholder="Décrivez le profil que vous recherchez ..."
+                      rows="4" cols="50"></textarea>
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Prediction de salaire</button>
+        </form>
+
+        <br>
+        <br>
+        <h2>{{ prediction_text }}</h2>
+
+
+    </div>
+
+
+</nav>
+</body>
+</html>
