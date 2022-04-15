@@ -1,9 +1,7 @@
 # SalairePred_G4
 
-Jeremy
+Prediction de salaire à partir de données pris sur indeed.fr
 
-Noli
 
-Tim
+Noli & Jeremy & Tim & César
 
-César
